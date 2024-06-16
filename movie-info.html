@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Info</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .movie-details {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .movie-details img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .movie-details h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .movie-details p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="movie-details" id="movie-details">
+            <!-- Movie details will be populated here -->
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About Us</h3>
+                    <p>We are a movie catalog website dedicated to bringing you the best movie recommendations and reviews.</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="https://facebook.com" target="_blank"><img src="images/download.png" alt="Facebook"></a></li>
+                        <li><a href="https://twitter.com" target="_blank"><img src="images/download (1).png" alt="Twitter"></a></li>
+                        <li><a href="https://instagram.com" target="_blank"><img src="images/download.jpg" alt="Instagram"></a></li>
+                        <li><a href="https://linkedin.com" target="_blank"><img src="images/download (2).png" alt="LinkedIn"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Movie Catalog. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Function to get query parameters
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substring(1).split('&').forEach(function(param) {
+                const [key, value] = param.split('=');
+                params[key] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        // Populate movie details
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = getQueryParams();
+            const movieDetails = document.getElementById('movie-details');
+            
+            const movies = {
+                "1": {
+                    title: "Guardians of the Galaxy",
+                    poster: "images/4.jpg",
+                    releaseYear: "2014",
+                    genre: "Action",
+                    director: "James Gunn",
+                    cast: "Chris Pratt, Zoe Saldana, Dave Bautista",
+                    rating: "8.0/10",
+                    synopsis: "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe."
+                },
+                "2": {
+                    title: "John Wick",
+                    poster: "images/5.jpg",
+                    releaseYear: "2014",
+                    genre: "Action",
+                    director: "Chad Stahelski",
+                    cast: "Keanu Reeves, Michael Nyqvist, Alfie Allen",
+                    rating: "7.4/10",
+                    synopsis: "An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him."
+                },
+                "3": {
+                    title: "The Dark Knight",
+                    poster: "images/6.jpg",
+                    releaseYear: "2008",
+                    genre: "Action",
+                    director: "Christopher Nolan",
+                    cast: "Christian Bale, Heath Ledger, Aaron Eckhart",
+                    rating: "9.0/10",
+                    synopsis: "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham."
+                },
+                "4": {
+                    title: "Finding Dory",
+                    poster: "images/8.jpg",
+                    releaseYear: "2016",
+                    genre: "Comedy",
+                    director: "Andrew Stanton",
+                    cast: "Ellen DeGeneres, Albert Brooks, Ed O'Neill",
+                    rating: "7.3/10",
+                    synopsis: "The friendly but forgetful blue tang fish, Dory, begins a search for her long-lost parents, and everyone learns a few things about the real meaning of family along the way."
+                },
+                "5": {
+                    title: "Onwards",
+                    poster: "images/9.jpg",
+                    releaseYear: "2020",
+                    genre: "Comedy",
+                    director: "Dan Scanlon",
+                    cast: "Tom Holland, Chris Pratt, Julia Louis-Dreyfus",
+                    rating: "7.4/10",
+                    synopsis: "Two elven brothers embark on a quest to bring their father back for one day."
+                },
+                "6": {
+                    title: "Little Miss Sunshine",
+                    poster: "images/1.jpg",
+                    releaseYear: "2006",
+                    genre: "Comedy",
+                    director: "Jonathan Dayton, Valerie Faris",
+                    cast: "Steve Carell, Toni Collette, Greg Kinnear",
+                    rating: "7.8/10",
+                    synopsis: "A family determined to get their young daughter into the finals of a beauty pageant take a cross-country trip in their VW bus."
+                },
+                "7": {
+                    title: "Black Panther",
+                    poster: "images/2.jpg",
+                    releaseYear: "2018",
+                    genre: "Action",
+                    director: "Ryan Coogler",
+                    cast: "Chadwick Boseman, Michael B. Jordan, Lupita Nyong'o",
+                    rating: "7.3/10",
+                    synopsis: "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country's past."
+                },
+                "8": {
+                    title: "Matrix",
+                    poster: "images/3.jpg",
+                    releaseYear: "1999",
+                    genre: "Action",
+                    director: "Lana Wachowski, Lilly Wachowski",
+                    cast: "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+                    rating: "8.7/10",
+                    synopsis: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+                },
+                "9": {
+                    title: "Joker",
+                    poster: "images/joker_full.avif",
+                    releaseYear: "2019",
+                    genre: "Drama",
+                    director: "Todd Phillips",
+                    cast: "Joaquin Phoenix, Robert De Niro, Zazie Beetz",
+                    rating: "8.4/10",
+                    synopsis: "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime."
+                },
+                "10": {
+                    title: "Luca",
+                    poster: "images/7.jpg",
+                    releaseYear: "2021",
+                    genre: "Comedy",
+                    director: "Enrico Casarosa",
+                    cast: "Jacob Tremblay, Jack Dylan Grazer, Emma Berman",
+                    rating: "7.5/10",
+                    synopsis: "On the Italian Riviera, an unlikely but strong friendship grows between a human being and a sea monster disguised as a human."
+                }
+            };
+
+            const movie = movies[params.id];
+            if (movie) {
+                movieDetails.innerHTML = `
+                    <img src="${movie.poster}" alt="${movie.title}">
+                    <h2>${movie.title}</h2>
+                    <p><strong>Release Year:</strong> ${movie.releaseYear}</p>
+                    <p><strong>Genre:</strong> ${movie.genre}</p>
+                    <p><strong>Director:</strong> ${movie.director}</p>
+                    <p><strong>Cast:</strong> ${movie.cast}</p>
+                    <p><strong>Rating:</strong> ${movie.rating}</p>
+                    <p><strong>Synopsis:</strong> ${movie.synopsis}</p>
+                `;
+            } else {
+                movieDetails.innerHTML = '<p>Movie not found!</p>';
+            }
+        });
+    </script>
+</body>
+</html>
